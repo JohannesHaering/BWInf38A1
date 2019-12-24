@@ -1,4 +1,7 @@
 import Network
+import Robot
+
+
 
 def parse(toParse):
     lines = toParse.split("\n")
@@ -17,7 +20,10 @@ def parse(toParse):
                 e = Network.Edge(v, vertices[len(vertices) - 1 - size], 1)
                 edges.append(e)
 
-    for line in lines[1:]:
+    chars = lines[1].split(" ")
+    robot = Robot.Robot(int(chars[0]), int(chars[1]), int(chars[2]))
+
+    for line in lines[2:]:
         if(bool(line)):
             chars = line.split(" ")
             x = int(chars[0])
